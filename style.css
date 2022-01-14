@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100%;
+    background-color: black;
+}
+.stars, .twinkling{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    height:100%;
+    display:block;
+  }
+  
+  .stars {
+    background: url(stars.png) repeat top center;
+    z-index:0;
+  }
+  .twinkling{
+    background:transparent url(twinkling.png) repeat top center;
+    z-index:1;
+    animation:move-twink-back 200s linear infinite;
+  }
+  @keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+.sun{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* background-color: #ffa011  ; */
+    background: rgb(255,204,51);
+    background: radial-gradient(circle,
+             rgba(255,204,51,1) 0%,
+             rgba(255,160,17,1) 36%, 
+             rgba(252,150,1,1) 66%, 
+             rgba(255,204,51,1) 100%);
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    animation: rotate 30s linear infinite ,
+                fade-in 4s linear infinite alternate;
+    /* box-shadow: 
+    0px 0px 700px 500px rgba(255,255,255,0.1); */
+    z-index: 2;
+}
+.earth{
+    width: 50px;
+    height: 50px;  
+    position: absolute;
+    top: -150px;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    animation: rotate 10s linear infinite ;
+    z-index: 2;
+}
+.earth img{
+    max-width: 75px;
+    max-height: 75px;
+    /* background-image: url(https://www.freeiconspng.com/thumbs/earth-png/planet-earth-png-8.png); */
+}
+.moon img{
+    max-width: 20px;
+    max-height: 20px;
+    /* background-image: url(https://www.freeiconspng.com/thumbs/earth-png/planet-earth-png-8.png); */
+}
+.moony{
+    width: 75px;
+    height: 75px;  
+    position: absolute;
+    top: 40px;
+    left: 38px;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    background-color: transparent;
+    animation: rotate-rev 4s linear infinite ;
+}
+.moon{
+    width: 20px;
+    height: 20px;  
+    position: absolute;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    /* animation: rotate 1s linear infinite ; */
+    z-index: 2;
+}
+
+@keyframes rotate{
+100% {
+transform: translate(-50%,-50%) rotate(360deg) ;
+}
+}
+@keyframes rotate-rev{
+100% {
+transform: translate(-50%,-50%) rotate(-360deg) ;
+}
+}
+
+
+@keyframes fade-in {
+    from{
+        box-shadow:0px 0px 700px 500px rgba(255,255,255,0.1),
+         0px 0px 50px 20px rgba(255,160,17,0.81);
+    }
+    to{
+        box-shadow:0px 0px 700px 500px rgba(255,255,255,0.1),
+         0px 0px 100px 60px rgba(255,160,17,0.81);
+    }
+} 
